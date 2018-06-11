@@ -8,17 +8,21 @@ use Slim\Http\Response;
 $app->get('/', 'HomeController:index');
 
 
-// Authentication
-$app->group('/auth', function() {
-    $this->post('/signup', 'AuthController:signUp');
-    $this->post('/signin', 'AuthController:signIn');
-});
+$app->group('/api', function() {
+    
+    // Authentication
+    $this->group('/auth', function() {
+        $this->post('/signup', 'AuthController:signUp');
+        $this->post('/signin', 'AuthController:signIn');
+    });
 
-// Task
-$app->group('/tasks', function() {
-    $this->post('', 'TaskController:createTask');
-    $this->get('', 'TaskController:getAllTasks');
-    $this->get('/{id}', 'TaskController:getTask');
-    $this->put('/{id}', 'TaskController:updateTask');
-    $this->delete('/{id}', 'TaskController:deleteTask');
+    // Task
+    $this->group('/tasks', function() {
+        $this->post('', 'TaskController:createTask');
+        $this->get('', 'TaskController:getAllTasks');
+        $this->get('/{id}', 'TaskController:getTask');
+        $this->put('/{id}', 'TaskController:updateTask');
+        $this->delete('/{id}', 'TaskController:deleteTask');
+    });
+
 });
