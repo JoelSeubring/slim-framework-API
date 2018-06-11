@@ -2,6 +2,6 @@
 
 <ul>
 <li>Clone this git repository</li>
-<li>cd into this repo and run composer install command</li>
+<li>cd into this repo and run "composer install" command</li>
 <li>http://localhost/slim-framework/api/tasks</li>
 </ul>
